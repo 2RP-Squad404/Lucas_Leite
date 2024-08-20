@@ -10,3 +10,5 @@ Este repositório foi criado com o intuito de armazenar os reltórios dos meus e
 * Terceira Semana
     - [14_08_part1.md](https://github.com/2RP-Squad404/Lucas_Leite/blob/develop/Relatorios/Terceira%20Semana/14_08_part1.md)
     - [14_08_part2.md](https://github.com/2RP-Squad404/Lucas_Leite/blob/develop/Relatorios/Terceira%20Semana/14_08_part2.md)
+* Quarta Semana
+    - [20_08.md](https://github.com/2RP-Squad404/Lucas_Leite/blob/develop/Relatorios/Quarta%20Semana/20_08.md)
