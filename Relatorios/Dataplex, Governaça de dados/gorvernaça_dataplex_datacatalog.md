@@ -1,12 +1,27 @@
 # Relatório de Estudos
 
 **Nome:** Lucas Lima Leite  
-**Data:** 1ª Semana de Setembro 2024
+**Data:** 2ª Semana de Setembro 2024
 
-## Assuntos Vistos
+## Assuntos
 
 - [Governança de Dados](#governança-de-dados)
-- [GIT](#git)
+    - [Benefícios](#benefícios)
+    - [Função da governança de dados](#função-da-governança-de-dados)
+- [Dataplex](#dataplex)
+    - [Governança de dados no BigQuery](#governança-de-dados-no-bigquery)
+    - [Descoberta automatizada de dados com o Data Catalog](#descoberta-automatizada-de-dados-com-o-data-catalog)
+- [Data Catalog](#data-catalog)
+    - [Benefícios](#benefícios-1)
+- [Dataplex + Data Catalog](#dataplex--data-catalog)
+    - [Benefícios](#benefícios-2)
+- [LABS](#labs)
+    - [Dataplex](#dataplex-1)
+        - [Dataplex: Qwik Start - Console/Command Line](#dataplex-qwik-start---consolecommand-line)
+        - [Tagging Dataplex Assets](#tagging-dataplex-assets)
+        - [Get Started with Dataplex: Challenge Lab](#get-started-with-dataplex-challenge-lab)
+    - [Data Catalog](#data-catalog-1)
+        - []
 
 ## Governança de Dados
 
@@ -24,6 +39,7 @@ Governança de dados significa definir padrões internos (**políticas de dados*
 * **Gerenciamento de riscos:** Com uma governança forte, você elimina as preocupações sobre a exposição de dados sensíveis a indivíduos ou sistemas que não têm a autorização adequada, a violações de segurança de usuários externos mal-intencionados ou mesmo a usuários internos que acessam dados que não têm o direito de ver. 
 
 * **Maior permissão de acesso da equipe:** Uma governança de dados eficiente permite que mais funcionários acessem mais dados, com a confiança de que esses funcionários têm acesso aos dados corretos e que essa democratização de dados não terá um impacto negativo na organização.
+
 
 ### Função da governança de dados
 A governança de dados é necessária para garantir que os dados estejam seguros, protegidos, privados, utilizáveis e em conformidade com as políticas de dados internos e externos. A governança de dados permite definir e aplicar controles que permitem maior acesso aos dados, conquistando a segurança e a privacidade dos controles de dados. Casos de uso comuns :
@@ -43,8 +59,35 @@ Para dar suporte ao ciclo de vida completo dos dados e facilitar o gerenciamento
 ### Descoberta automatizada de dados com o Data Catalog
 Com o data catalog é possivel automatizar a descoberta de dados, a classificação e o enriquecimento de metadados de dados estruturados, semiestruturados e não estruturados, armazenados no Google Cloud e em outros locais, com inteligência de dados integrada.
 
+## Data Catalog
+É um serviço de gerenciamento de metadados que permite catalogar, organizar e pesquisar datasets de forma eficiente. O Data Catalog automaticamente cataloga metadados de fontes do Google Cloud, como BigQuery, Vertex AI, Pub/Sub, Spanner, Bigtable, etc. Ele também indexa metadados de tabelas e conjuntos de arquivos do Cloud Storage por meio de pesquisa.
 
-## Get Started with Dataplex (Course)
+### Benefícios
+* **Catalogação Automática:** O Data Catalog é capaz de **catalogar automaticamente** os datasets, views e tabelas que estão no **BigQuery**, além de dados **raw** como no **Cloud Storage**. Ele também permite que metadados adicionais (como descrições, tags e termos de taxonomia) sejam atribuídos para enriquecer o contexto dos dados.
+
+* **Pesquisa e Descoberta:** Proporciona uma busca eficiente por dados no BigQuery, facilitando que os usuários encontrem datasets e views relevantes através de **descrições e tags**.
+
+* **Tagging e Classificação:** Permite adicionar **tags personalizadas e classificações** (como sensibilidade de dados) para melhorar o gerenciamento e a governança, especialmente no contexto de conformidade com normas como **GDPR** ou **LGPD**.
+
+* **Integração com o IAM:** Integra-se com o sistema de gerenciamento de identidades e acessos (**IAM**) do GCP, permitindo que as permissões de acesso aos dados sejam gerenciadas de forma **centralizada**.
+
+
+## Dataplex + Data Catalog
+O **Dataplex** oferece uma camada abrangente de gerenciamento e segurança de dados, enquanto o **Data Catalog** garante a organização e descoberta eficiente, ambos complementando-se para garantir uma governança de dados eficiente no BigQuery.
+
+### Benefícios
+
+* **Visão Centralizada e Unificada dos Dados:** Usar o **Dataplex** para unificar diferentes fontes de dados (mesmo que estejam em outros ambientes além do BigQuery) e o **Data Catalog** para fornecer uma catalogação detalhada.
+
+* **Governança em Grande Escala:** Aplicar políticas de segurança e governança **automatizadas** em todos os datasets e views no BigQuery.
+
+* **Aprimoramento de Qualidade e Conformidade:** Monitorar continuamente a qualidade dos dados no Dataplex e garantir a conformidade com regulamentações por meio de tags e auditorias no Data Catalog.
+
+* **Documentação e Descoberta de Dados:** A capacidade de documentar os dados com descrições ricas e classificar os dados de acordo com níveis de confidencialidade ou uso.
+
+## LABS
+### Dataplex
+---
 ### [Dataplex: Qwik Start - Console/Command Line:](https://www.cloudskillsboost.google/course_templates/726?catalog_rank=%7B%22rank%22%3A1%2C%22num_filters%22%3A1%2C%22has_search%22%3Atrue%7D&search_id=36198280)
 
 * **Ativar a API do Dataplex**,
@@ -71,6 +114,21 @@ Com o data catalog é possivel automatizar a descoberta de dados, a classificaç
 
 * **Buscar *Assets* utilizando *Tags* -** Depois associar *tags* aos *assets* desejados, é possível buscar todos os assets associados a uma ou mais tags.
 
+### [Get Started with Dataplex: Challenge Lab:](https://www.cloudskillsboost.google/course_templates/726/labs/461571)
+* **Ativar a API do Dataplex**
+
+* **Criar um lake (Customer Engagements)**
+
+* **Criar uma Zona "Raw" (Raw Event Data)**
+
+* **Criar e Adicionar um Bucket (*asset*) a Zona**
+
+* **Criar e aplicar um Tag Template a Zona (Raw Event Data)**
+
+
+### Data Catalog
+---
+
 
 
 ### Recursos Utilizados:
@@ -81,10 +139,9 @@ Com o data catalog é possivel automatizar a descoberta de dados, a classificaç
 
 
 ### Desafios Encontrados:
-Com realação aos estudos não tive dificuldades, porém a com realação a utilização do git, acredito que se faz necessário maior utilização da ferramenta e do git flow para se tornar algo mais usual, e obter maior fluidez de trabalho.
 
-### Feedback e Ajustes:
-Com realação as diversas tecnologias apresentadas, acredito ajudaria se tivéssemos um direcionamento de quais tecnologias focarmos inicialmente, algo que provavelmente utilizaremos num futuro próximo.
+
+### Ideias e possibilidades de utilização:
+
 
 ### Próximos Passos:  
-Acredito que focar em linguagens frequentemente utilizadas na área como Python, PostgreSQL, ferramentas como GIT e git flow, e buscar conhecer mais bancos de dados em nuvem como os da Google, AWS, etc.
