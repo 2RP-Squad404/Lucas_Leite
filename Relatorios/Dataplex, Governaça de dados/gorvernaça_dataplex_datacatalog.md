@@ -20,8 +20,8 @@
         - [Dataplex: Qwik Start - Console/Command Line](#dataplex-qwik-start---consolecommand-line)
         - [Tagging Dataplex Assets](#tagging-dataplex-assets)
         - [Get Started with Dataplex: Challenge Lab](#get-started-with-dataplex-challenge-lab)
-    - [Data Catalog](#data-catalog-1)
-        - []
+- [Recursos Utilizados](#recursos-utilizados)
+
 
 ## Governança de Dados
 
@@ -72,8 +72,14 @@ Com o data catalog é possivel automatizar a descoberta de dados, a classificaç
 * **Integração com o IAM:** Integra-se com o sistema de gerenciamento de identidades e acessos (**IAM**) do GCP, permitindo que as permissões de acesso aos dados sejam gerenciadas de forma **centralizada**.
 
 
+
 ## Dataplex + Data Catalog
-O **Dataplex** oferece uma camada abrangente de gerenciamento e segurança de dados, enquanto o **Data Catalog** garante a organização e descoberta eficiente, ambos complementando-se para garantir uma governança de dados eficiente no BigQuery.
+
+O **Dataplex** oferece uma camada abrangente de gerenciamento e segurança de dados, enquanto o **Data Catalog** garante a organização e descoberta eficiente, ambos complementando-se para garantir uma governança de dados eficiente no BigQuery.  
+
+*↓ Exemplo malha de dados ↓*
+
+![Exemplo Malha de dados](https://www.gstatic.com/bricks/image/0f8c7252d6344b571c3569a83b8f41d5189eafbae9cbfb4b73165513cd34ddb8.svg)
 
 ### Benefícios
 
@@ -84,6 +90,12 @@ O **Dataplex** oferece uma camada abrangente de gerenciamento e segurança de da
 * **Aprimoramento de Qualidade e Conformidade:** Monitorar continuamente a qualidade dos dados no Dataplex e garantir a conformidade com regulamentações por meio de tags e auditorias no Data Catalog.
 
 * **Documentação e Descoberta de Dados:** A capacidade de documentar os dados com descrições ricas e classificar os dados de acordo com níveis de confidencialidade ou uso.
+
+### Separações interessantes das ZONAS
+
+* **RAW DATA ZONE -** Dados *RAW* a serem utilizados para gerar outras tabelas.
+* **CURATED DATA ZONE -** Dados tratados gerados através de dados de tabelas *RAW*.
+* **DATA PRODUCT ZONE -** Um produto a partir dos dados, com valor, o qual se pode tomar decisões.
 
 ## LABS
 ### Dataplex
@@ -126,22 +138,8 @@ O **Dataplex** oferece uma camada abrangente de gerenciamento e segurança de da
 * **Criar e aplicar um Tag Template a Zona (Raw Event Data)**
 
 
-### Data Catalog
----
-
-
-
 ### Recursos Utilizados:
+- [LABS](#labs)
+- [Manage and govern distributed data with Dataplex](https://www.youtube.com/watch?v=a6QVNAlAAl0)
+- [Google Cloud Day: Governança de Dados na prática usando o GCP](https://www.youtube.com/watch?v=5-NtozDQVBQ&t=1096s)
 
-
-### Principais comandos (se aplicável):
-
-
-
-### Desafios Encontrados:
-
-
-### Ideias e possibilidades de utilização:
-
-
-### Próximos Passos:  
