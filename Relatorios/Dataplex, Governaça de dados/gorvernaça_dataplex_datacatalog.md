@@ -97,6 +97,33 @@ O **Dataplex** oferece uma camada abrangente de gerenciamento e segurança de da
 * **CURATED DATA ZONE -** Dados tratados gerados através de dados de tabelas *RAW*.
 * **DATA PRODUCT ZONE -** Um produto a partir dos dados, com valor, o qual se pode tomar decisões.
 
+### Permissões básicas Dataplex
+
+| Papel                          | Descrição                                                                 |
+|---------------------------------|---------------------------------------------------------------------------|
+| Leitor do Dataplex              | Capacidade de visualizar, mas não editar, o lake e as zonas e os recursos configurados. |
+| Editor do Dataplex              | Capacidade de editar o lake. Pode criar e configurar lakes, zonas, recursos e tarefas.   |
+| Administrador do Dataplex       | Capacidade de administrar um lake.                                         |
+| Desenvolvedor do Dataplex       | Capacidade de executar cargas de trabalho de análise de dados em um lake.  |
+
+### Permissões para metadados Dataplex
+
+| Papel                           | Descrição                                                          |
+|----------------------------------|--------------------------------------------------------------------|
+| Gravador de metadados do Dataplex| Capacidade de atualizar os metadados de um determinado recurso.     |
+| Leitor de metadados do Dataplex  | Capacidade de ler os metadados (por exemplo, consultar uma tabela). |
+
+### Mais permissões
+
+| Papel                         | Descrição                                                                                                                             |
+|--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| Leitor de dados do Dataplex    | Capacidade de ler dados do armazenamento anexado a recursos, incluindo buckets de armazenamento e conjuntos de dados do BigQuery (e seus conteúdos). |
+| Gravador de dados do Dataplex  | Capacidade de gravar nos recursos subjacentes indicados pelo recurso.                                                                 |
+| Proprietário de dados do Dataplex | Concede o papel de Proprietário aos recursos subjacentes, incluindo a capacidade de gerenciar recursos filhos. Por exemplo, como proprietário dos dados de um conjunto de dados do BigQuery, você pode gerenciar as tabelas subjacentes. |
+
+
+
+
 ## LABS
 ### Dataplex
 ---
