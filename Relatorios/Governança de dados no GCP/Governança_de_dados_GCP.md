@@ -2,7 +2,11 @@
 
 
 ## Dataplex
-Principais ferramentas dataplex CATALOG, PROFILE e DATAQUALITY.
+Principais ferramentas dataplex para governança de dados CATALOG, PROFILE e DATAQUALITY.
+
+Para refinar o catálogo, utilizar da documentação com TAG TEMPLATE.
+
+Centralizar permissionamento, mapeamento dos lakes, segurança de acesso no dataplex, MANAGE LAKES.
 
 
 ### 📚 Catalog
@@ -37,38 +41,51 @@ Monitoramento, realiza um scan que possui as principais características das est
     * Determinar se será escaneado todos os dados, ou apenas o incremento daquela tabela, ou seja, os dados adicionados naquela tabelas desde o ultimo scan. 
     * Determinar nos filtros o quanto daquela tabela vai ser escaneado
 
-* **Determinar a frequência do escaneamento
+* Determinar a frequência do escaneamento
 
-> Possibilidade de publicar no BigQuery
+* Possível schedular uma recorrencia para o profiling (geralemente quando for incremental)
 
-> Resultado 
-    - Principais estatísticas do objeto, 
-    - Domínio das colunas*, 
-    - Tipo de conteúdo em cada coluna, 
-    - Estatísticas de cada coluna,
-    - Pode ser usado como base para data quality.
+* Possibilidade de publicar no BigQuery (gera informações importantes para auditoria)
+
+* **Resultado -** Informações importantes para engenharia, como: 
+    * Principais estatísticas do objeto, 
+    * Domínio das colunas, 
+    * Tipo de conteúdo em cada coluna, 
+    * Estatísticas de cada coluna,
+    * Pode ser usado como base para data quality.
 
 
 
 
 ### 📊 Data Quality 
+Reliza um scan nos dados de forma a identificar padrões como, valores nulos, tipos de dados, além de verificações mais personalizadas relacionado a como deveriam estar seus dados, e com isso existe a possibilidade de gerar alertas.
+Tabelas com profile tendem a ter possibilidades de scan dos dados mais personalizada de acordo com os próprios dados.
 
-	> Criar um Scan - Vincular o que vai ser scaneado
+* **Criar um Scan -** Vincular o que vai ser scaneado 
 
-	> Quality rules - Define o que vai ser verificado para manter a qualidade dos dados, como:
-		- Null check de email, cpf, etc,
-		- Se o domínio do dado procede,
-		- Se o dado encontrado com uma regex segue um padrão estabelecido,
-		- Checagem de linhas.
-		
-	> Additional Settings - Exportar resultados para o bigquery, é possível criar um dashboard com o resultado da qualidade de dados gerada.
+* **Quality rules -** Define o que vai ser verificado para manter a qualidade dos dados, podendo utilizar regras padrões, regras baseadas no profile, e baseadas em SQL, como:
+	* Null check de email, cpf, etc,
+	* Se o domínio do dado procede,
+	* Se o dado encontrado com uma regex segue um padrão estabelecido,
+	* Checagem de linhas.
+	
+* **Additional Settings -** Exportar resultados para o bigquery, é possível criar um dashboard com o resultado da qualidade de dados gerada.
 
+
+
+### 🗂️ Manage
+Permite centralizar o gerenciamento de dados, garantindo governança, segurança e conformidade, especialmente em ambiente onde os dados estão espalhados por diferentes armazenamentos como BigQuery, Cloud Storage, etc.
+
+* **Lakes e Zones:** Os dados são organizados em *lakes* que podem ser subdivididos em *zonas* (zonas). Cada zona pode conter dados brutos, processados ou analíticos, oferecendo uma estrutura lógica para categorização e segmentação de dados.
+
+* **Descoberta de dados automática:** O dataplex permite a descoberta autmatica dos dados armazenados, categorizando e gerando insights sobre os dados sem a necessidade da intervenção manual.
 
 
 
 ### 🔒 Secure
 
-Determinar permissões via Dataplex.
+Determinar permissões via Dataplex a nível de detasets, utilizando permissões de dataplex.
+
 
 
 ## IAM/PAM
@@ -83,6 +100,8 @@ Determinar permissões via Dataplex.
 
 * Ao atingir o limite, gera uma mensagem de LIMITE.
 
+
+
 ### ⏳ PAM 
 
 Gerenciamento de permissões temporárias (requisição, e aprovação),
@@ -91,37 +110,39 @@ Gerenciamento de permissões temporárias (requisição, e aprovação),
 
 
 
-
 ## Bigquery
 
-### ⚖️ Capacity Management *** 
-Designar uma capacidade para determinado grupo de times 
+### ⚖️ Capacity Management
+Designar uma capacidade para grupos de times, possibilitando dosar a quantidade de recursos para a utilização seja com processamento de consultas ou workflows.
 
-	> Slot estimator - tipo uma calculadora de capacidade de uso
 
-	> Create reservation - provavelmente utilizar o STANDARD, se for utilizar machine learning, policy tags (bq), usar o ENTERPRISE.
-
-	> Baseline Slots - Mínimo para manter 100%, pros Jobs operacionalizarem. Dimensionar com o valor médio de slots que consome.
-	
-	> Idle Slots - Permite que a reserva caso ultrapasse o máximo de slots, utilize os slots que estão parados e sem utilização de outra reserva. Ou seja, utiliza os recursos ociosos.
-
+* **Slot estimator -** uma calculadora que analisa os ultimos 30 dias de utilização, e estima um serviço, como **on demand** ou **flat-rate pricing** 
+* **Create reservation -** escolher a edição da reserva, provavelmente utilizar o STANDARD inicialmente, se for utilizar machine learning, policy tags (bq), usar o ENTERPRISE. 
+* **Max reservation -** determina o máximo de slots que podem ser utilizados
+* **Baseline Slots -** Mínimo para manter 100% dos Jobs operacionais. Dimensionar com o valor médio de slots que consome.
+* **Idle Slots -** Permite que a reserva caso ultrapasse o máximo de slots, utilize os slots que estão parados e sem utilização de outra reserva. Ou seja, utiliza os recursos ociosos.
 
 
 
-### 📈 BI Engine*** 
-É um serviço de analise em cache que permite usuários explorarem datasets complexos de forma mais ágil. Nativamente integra ferramentas de BI que possam conectar ao BigQuery.
+### 📈 BI Engine
+É uma ferramenta que otimiza a performance de consultas em dados no BigQuery, especialmente para o uso em ferramentas de BI como **Google Data Studio**, **Looker**. Ele é voltado para acelerar a experiência de consulta ao processar dados diretamente na ram, reduzindo o tempo de resposta  e melhorando a performance de dashboards e relatórios.
 
+* Interessante para tabelas que não tem processamento em tempo real, D -1,
+* Define o que vai pra **cache** de forma **automática** (a partir das querys geradas pelas ou para as ferramentas de BI),
+* Possível definir as tabelas de preferencia para o armazenamento disponibilizado.
 
 
 
 ### 🪙 Analytics Hub 
 Facilita a dinâmica de billing de forma a quando alguém fizer uma consulta um dataset o custo disso fica pra ele, não pro billing do dataset.
 
-* **Criar uma Exchange** - Area de troca, quem são os usuários que podem receber essa informação.
+* **Criar uma Exchange** - Área de troca, pode definir quem são os usuários que devem podem acessar essa informação.
 
-* **Criar um Listing** - Determinar o dataset, documentar em details.
+* **Criar um Listing** - Determinar o dataset a ser compartilhado, determinar restrições, documentar em **details**.
 
-* Ao adicionar uma nova fonte de dados no **BigQuery**, e adicionar um dataset existente a ele via **Analytics hub**, é possível você acessar um **dataset X** e o custo do seu uso dentro dele vai para o billing do **projeto de destino** .
+* No **BigQuery** Ao adicionar uma nova fonte de dados e adicionar um dataset existente a ele via **Analytics hub**, é possível você acessar um **dataset X** vindo do **projeto X** e o custo do seu uso dentro dele vai para o billing do **projeto Y** que é o assinante que recebeu o dataset.
+
+* Os usuários inscritos no Analitycs hub podem escolher visualizar aqueles dados ou não, e chega como um projeto linkado.
 
 
 ## Folders
